@@ -8,8 +8,8 @@ _offline="false"
 _git="false"
 _pkg=evm-wallet
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1"
-_commit="c7a1570703802343b72abb25096f553073da966b"
+pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1.1"
+_commit="7d252753e9132f874fb5f9c3b1226888538e25d6"
 pkgrel=1
 _pkgdesc=(
   "EVM wallet (tools)."
@@ -70,7 +70,7 @@ _tarname="${pkgname}-${_tag}"
     _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
   elif [[ "${_tag_name}" == "commit" ]]; then
     _tar="${_tarname}.zip::${_url}/archive/${_commit}.zip"
-    _sum="8a0b7f9dc2dd87d03c5226b7118562f0e717f3d30724e7058ab5d7932cca362b"
+    _sum="07cd11711a55024288104232a26101081142549595dfa5b8bad1f37eaeced66b"
   fi && \
     source+=(
       "${_tar}"
