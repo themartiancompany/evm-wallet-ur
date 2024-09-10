@@ -25,6 +25,7 @@ license=(
   AGPL3
 )
 depends=(
+  "libcrash-bash"
   "libcrash-js"
   "${_node}"
   "${_node}-ethers"
