@@ -1,6 +1,6 @@
 pkgbase = evm-wallet
-	pkgdesc = EVM wallet (tools).
-	pkgver = 0.0.0.0.0.0.0.0.0.0.0.0.1.1.1
+	pkgdesc = EVM wallet (and tools).
+	pkgver = 0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1
 	pkgrel = 1
 	url = https://github.com/themartiancompany/evm-wallet
 	arch = any
@@ -9,8 +9,8 @@ pkgbase = evm-wallet
 	makedepends = make
 	depends = nodejs
 	depends = nodejs-ethers
-	source = evm-wallet-7e43bc3d94f4e82ef422bd86a4792b66ebdec116.zip::https://github.com/themartiancompany/evm-wallet/archive/7e43bc3d94f4e82ef422bd86a4792b66ebdec116.zip
+	source = evm-wallet-9158bcf556cef1dada185f5140264b5f8df0296f.zip::https://github.com/themartiancompany/evm-wallet/archive/9158bcf556cef1dada185f5140264b5f8df0296f.zip
 	validpgpkeys = 97E989E6CF1D2C7F7A41FF9F95684DBE23D6A3E9
-	sha256sums = 4b16bd2039a58a206f3a50bd73da90bb9311280ee831094cc6dbd1c808a74aee
+	sha256sums = 7fbf69424e8e2b71ab530f9869e280b3fc56b592bec3cced7397d113b87652c2
 
 pkgname = evm-wallet
