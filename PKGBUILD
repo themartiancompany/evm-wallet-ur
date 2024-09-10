@@ -8,11 +8,11 @@ _offline="false"
 _git="false"
 _pkg=evm-wallet
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1"
-_commit="7e43bc3d94f4e82ef422bd86a4792b66ebdec116"
+pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1"
+_commit="9158bcf556cef1dada185f5140264b5f8df0296f"
 pkgrel=1
 _pkgdesc=(
-  "EVM wallet (tools)."
+  "EVM wallet (and tools)."
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
