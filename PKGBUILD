@@ -8,8 +8,8 @@ _offline="false"
 _git="false"
 _pkg=evm-wallet
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1"
-_commit="9158bcf556cef1dada185f5140264b5f8df0296f"
+pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1"
+_commit="1a24db0e8ac18baab09a33a5a6f65b096b61172e"
 pkgrel=1
 _pkgdesc=(
   "EVM wallet (and tools)."
@@ -25,6 +25,7 @@ license=(
   AGPL3
 )
 depends=(
+  "libcrash-js"
   "${_node}"
   "${_node}-ethers"
 )
@@ -70,7 +71,7 @@ _tarname="${pkgname}-${_tag}"
     _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
   elif [[ "${_tag_name}" == "commit" ]]; then
     _tar="${_tarname}.zip::${_url}/archive/${_commit}.zip"
-    _sum="7fbf69424e8e2b71ab530f9869e280b3fc56b592bec3cced7397d113b87652c2"
+    _sum="c5b5e48094cfe4be92e3708760e9c10e9ea4bb0e31587cb47dea233692602822"
   fi && \
     source+=(
       "${_tar}"
