@@ -25,6 +25,7 @@ license=(
   AGPL3
 )
 depends=(
+  "key-gen"
   "libcrash-bash"
   "libcrash-js"
   "${_node}"
