@@ -9,6 +9,7 @@ _git="false"
 _pkg=evm-wallet
 pkgname="${_pkg}"
 pkgver="0.0.0.0.0.0.0.0.0.0.0.0.1.1.1.1.1.1.1.1"
+_commit="bd2093d7a5ae7e13974c0950626149027db3a074"
 _commit="5b41caa1f9c4f0bbb59d4a59178cdc24d96e319a"
 pkgrel=1
 _pkgdesc=(
