@@ -25,6 +25,8 @@ license=(
   AGPL3
 )
 depends=(
+  "evm-chains-info"
+  "evm-chains-explorers"
   "key-gen"
   "libcrash-bash"
   "libcrash-js"
