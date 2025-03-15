@@ -46,7 +46,7 @@ _git="false"
 _pkg=evm-wallet
 pkgname="${_pkg}"
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
-_commit="3f0e270536ba6b6ed19d39dbbdfb3af79fee8639"
+_commit="01f2ceeb864edc78f3e67e3d8ac08583e1b6f4dc"
 pkgrel=1
 _pkgdesc=(
   "EVM wallet (and tools)."
@@ -98,10 +98,10 @@ fi
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
-_archive_sum="3f10cf875bd60326d7a03b06baae449ef2b74663321f7a8039a4605ce735d500"
+_archive_sum='8ddae5ade5e6b5859fcce0342f1ad36e4e15bb0271fb78917691d7eae8baf0e4'
 _evmfs_archive_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_archive_sum}"
 _evmfs_archive_src="${_tarname}.zip::${_evmfs_archive_uri}"
-_archive_sig_sum="a841bd990f96f453ee7e3fa576c8454a6a6d0d2d2c9ef28c142c34013c8262fd"
+_archive_sig_sum="966b5fed3594cbc518b914431f9195e6b75e6c4c73cf9fed33fc3c0fb426cc4b"
 _archive_sig_uri="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}/${_archive_sig_sum}"
 _archive_sig_src="${_tarname}.zip.sig::${_archive_sig_uri}"
 if [[ "${_evmfs}" == "true" ]]; then
@@ -164,4 +164,3 @@ package() {
 }
 
 # vim: ft=sh syn=sh et
-sha256sums=('dd6b7f75c5ad7f647ee6224d60eff1851198696f5b913b9568ec52c33af68a7a')
