@@ -40,12 +40,13 @@ if [[ ! -v "_evmfs" ]]; then
   fi
 fi
 _node='nodejs'
+_py="python"
 _offline="false"
 _git="false"
 _pkg=evm-wallet
 pkgname="${_pkg}"
-pkgver="0.0.0.0.0.0.0.0.0.0.0.1.1.1.1"
-_commit="7f99713baeb8beb51f84c1a246e7741aec9cce5c"
+pkgver="0.0.0.0.0.0.0.0.0.0.1"
+_commit="3f0e270536ba6b6ed19d39dbbdfb3af79fee8639"
 pkgrel=1
 _pkgdesc=(
   "EVM wallet (and tools)."
@@ -80,6 +81,7 @@ optdepends=(
   )
 makedepends=(
   'make'
+  "${_py}-docutils"
 )
 checkdepends=(
   "shellcheck"
@@ -162,3 +164,4 @@ package() {
 }
 
 # vim: ft=sh syn=sh et
+sha256sums=('dd6b7f75c5ad7f647ee6224d60eff1851198696f5b913b9568ec52c33af68a7a')
