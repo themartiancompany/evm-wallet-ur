@@ -41,15 +41,33 @@ if [[ ! -v "_evmfs" ]]; then
 fi
 _node='nodejs'
 _py="python"
-_offline="false"
-_git="false"
+if [[ ! -v "_offline" ]]; then
+  _offline="false"
+fi
+if [[ ! -v "_git" ]]; then
+  _git="false"
+fi
+if [[ ! -v "_docs" ]]; then
+  _docs="true"
+fi
+_proj="hip"
 _pkg=evm-wallet
-pkgname="${_pkg}"
+pkgbase="${_pkg}"
+pkgname=(
+  "${_pkg}"
+)
+if [[ "${_docs}" == "true" ]]; then
+  pkgname+=(
+    "${_pkg}-docs"
+  )
+fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
 _commit="01f2ceeb864edc78f3e67e3d8ac08583e1b6f4dc"
 pkgrel=1
 _pkgdesc=(
-  "EVM wallet (and tools)."
+  "Ethereum Virtual Machine-compatible"
+  "networks wallet (and tools)."
+  "Core component of the EVM toolchain."
 )
 pkgdesc="${_pkgdesc[*]}"
 arch=(
@@ -61,14 +79,11 @@ url="${_http}/${_ns}/${pkgname}"
 license=(
   'AGPL3'
 )
+group=(
+  "${_proj}"
+  "evm-toolchain"
+)
 depends=(
-  "evm-chains-info"
-  "evm-chains-explorers"
-  "key-gen"
-  "libcrash-bash"
-  "libcrash-js"
-  "node-run"
-  "${_node}-ethers"
 )
 [[ "${_os}" != "GNU/Linux" ]] && \
 [[ "${_os}" == "Android" ]] && \
@@ -81,8 +96,12 @@ optdepends=(
   )
 makedepends=(
   'make'
-  "${_py}-docutils"
 )
+if [[ "${_docs}" == "true" ]]; then
+  makedepends+=(
+    "${_py}-docutils"
+  )
+fi
 checkdepends=(
   "shellcheck"
 )
@@ -154,13 +173,44 @@ check() {
     check
 }
 
-package() {
+package_evm-wallet() {
+  local \
+    _make_opts=()
+  depends+=(
+    "evm-chains-info"
+    "evm-chains-explorers"
+    "key-gen"
+    "libcrash-bash"
+    "libcrash-js"
+    "node-run"
+    "${_node}-ethers"
+  )
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX='/usr'
+  )
   cd \
     "${_tarname}"
   make \
-    PREFIX="/usr" \
-    DESTDIR="${pkgdir}" \
-    install
+    "${_make_opts[@]}" \
+    install-scripts
+}
+
+package_evm-wallet-docs() {
+  local \
+    _make_opts=()
+  _make_opts=(
+    DESTDIR="${pkgdir}"
+    PREFIX='/usr'
+  )
+  cd \
+    "${_tarname}"
+  make \
+    "${_make_opts[@]}" \
+    install-doc
+  make \
+    "${_make_opts[@]}" \
+    install-man
 }
 
 # vim: ft=sh syn=sh et
