@@ -62,7 +62,7 @@ if [[ "${_docs}" == "true" ]]; then
   )
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
-_commit="01f2ceeb864edc78f3e67e3d8ac08583e1b6f4dc"
+_commit="6d7c4e87544f2c2f7cc5f3b42019cf477e498394"
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
