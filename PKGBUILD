@@ -114,6 +114,11 @@ if [[ "${_evmfs}" == "true" ]]; then
     "evmfs"
   )
 fi
+if [[ "${_git}" == "true" ]]; then
+  makedepends+=(
+    "git"
+  )
+fi
 if [[ "${_docs}" == "true" ]]; then
   makedepends+=(
     "${_py}-docutils"
@@ -148,27 +153,34 @@ _evmfs_src="${_tarfile}::${_evmfs_uri}"
 _sig_uri="${_evmfs_dir}/${_sig_sum}"
 _sig_src="${_tarfile}.sig::${_sig_uri}"
 if [[ "${_evmfs}" == "true" ]]; then
-  _src="${_evmfs_src}"
-  source+=(
-    "${_sig_src}"
-  )
-  sha256sums+=(
-    "${_sig_sum}"
-  )
-elif [[ "${_git}" == true ]]; then
-  makedepends+=(
-    "git"
-  )
-  _src="${_tarname}::git+${_url}#${_tag_name}=${_tag}?signed"
-  _sum="SKIP"
-elif [[ "${_git}" == false ]]; then
-  if [[ "${_git_http}" == "github" ]]; then
-    if [[ "${_tag_name}" == 'pkgver' ]]; then
-      _src="${_tarfile}::${_url}/archive/refs/tags/${_tag}.tar.gz"
-      _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
-    elif [[ "${_tag_name}" == "commit" ]]; then
-      _src="${_tarfile}::${_url}/archive/${_commit}.zip"
-      _sum="${_github_sum}"
+  if [[ "${_git}" == "false" ]]; then
+    _src="${_evmfs_src}"
+    source+=(
+      "${_sig_src}"
+    )
+    sha256sums+=(
+      "${_sig_sum}"
+    )
+  fi
+elif [[ "${_evmfs}" == "false" ]]; then
+  if [[ "${_git}" == "true" ]]; then
+    _src="${_tarname}::git+${_url}#${_tag_name}=${_tag}?signed"
+    _sum="SKIP"
+  elif [[ "${_git}" == false ]]; then
+    if [[ "${_git_http}" == "github" ]]; then
+      if [[ "${_tag_name}" == 'pkgver' ]]; then
+        _src="${_tarfile}::${_url}/archive/refs/tags/${_tag}.tar.gz"
+        _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
+      elif [[ "${_tag_name}" == "commit" ]]; then
+        _src="${_tarfile}::${_url}/archive/${_commit}.zip"
+        _sum="${_github_sum}"
+      fi
+    elif [[ "${_git_http}" == "github" ]]; then
+      if [[ "${_tag_name}" == 'pkgver' ]]; then
+        _uri="${_url}/archive/refs/tags/${_tag}.${_archive_format}"
+      elif [[ "${_tag_name}" == "commit" ]]; then
+        _uri="${_url}/-/archive/${_tag}/${_tag}.${_archive_format}"
+      fi
     fi
   fi
 fi
