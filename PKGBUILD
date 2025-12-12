@@ -74,7 +74,7 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
 _commit="6d7c4e87544f2c2f7cc5f3b42019cf477e498394"
-pkgrel=2
+pkgrel=3
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
   "networks wallet (and tools)."
