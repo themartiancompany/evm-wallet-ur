@@ -163,25 +163,25 @@ if [[ "${_evmfs}" == "true" ]]; then
     )
   fi
 elif [[ "${_evmfs}" == "false" ]]; then
-  if [[ "${_git}" == "true" ]]; then
+  if [[ "${_git}" == true ]]; then
+    makedepends+=(
+      "git"
+    )
     _src="${_tarname}::git+${_url}#${_tag_name}=${_tag}?signed"
     _sum="SKIP"
   elif [[ "${_git}" == false ]]; then
+    _uri=""
     if [[ "${_git_http}" == "github" ]]; then
-      if [[ "${_tag_name}" == 'pkgver' ]]; then
-        _src="${_tarfile}::${_url}/archive/refs/tags/${_tag}.tar.gz"
-        _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
-      elif [[ "${_tag_name}" == "commit" ]]; then
-        _src="${_tarfile}::${_url}/archive/${_commit}.zip"
+      if [[ "${_tag_name}" == "commit" ]]; then
+        _uri="${_url}/archive/${_commit}.${_archive_format}"
         _sum="${_github_sum}"
       fi
-    elif [[ "${_git_http}" == "github" ]]; then
-      if [[ "${_tag_name}" == 'pkgver' ]]; then
-        _uri="${_url}/archive/refs/tags/${_tag}.${_archive_format}"
-      elif [[ "${_tag_name}" == "commit" ]]; then
+    elif [[ "${_git_http}" == "gitlab" ]]; then
+      if [[ "${_tag_name}" == "commit" ]]; then
         _uri="${_url}/-/archive/${_tag}/${_tag}.${_archive_format}"
       fi
     fi
+    _src="${_tarfile}::${_uri}"
   fi
 fi
 source+=(
