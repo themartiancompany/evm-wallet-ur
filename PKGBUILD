@@ -72,9 +72,9 @@ if [[ "${_docs}" == "true" ]]; then
     "${_pkg}-docs"
   )
 fi
-pkgver="0.0.0.0.0.0.0.0.0.0.1"
+pkgver="0.0.0.0.0.0.0.0.0.0.1.1"
 _libcrash_js_ver="0.1.69"
-_commit="6d7c4e87544f2c2f7cc5f3b42019cf477e498394"
+_commit="fcfcf2cf94b1026e8f284e7793dd192e2f0df06c"
 pkgrel=4
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
@@ -127,14 +127,18 @@ _tarfile="${_tarname}.${_archive_format}"
 if [[ "${_offline}" == "true" ]]; then
   _url="file://${HOME}/${pkgname}"
 fi
-_archive_sum='8ddae5ade5e6b5859fcce0342f1ad36e4e15bb0271fb78917691d7eae8baf0e4'
-_archive_sig_sum="966b5fed3594cbc518b914431f9195e6b75e6c4c73cf9fed33fc3c0fb426cc4b"
+_github_sum="SKIP"
+_github_sig_sum="SKIP"
+_gitlab_sum="bf6c7fb2be3a0a1079ec1a04c985298cd4630700615a784faf26d6acf6df8d99"
+_gitlab_sig_sum="3676d2b253e9c0899a2724a7558abc57e905ffd872b2eaee4a2b75d0cbc17924"
+_sum="${_gitlab_sum}"
+_sig_sum="${_gitlab_sig_sum}"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_dir="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}"
-_evmfs_archive_uri="${_evmfs_dir}/${_archive_sum}"
+_evmfs_archive_uri="${_evmfs_dir}/${_sum}"
 _evmfs_archive_src="${_tarfile}::${_evmfs_archive_uri}"
 _archive_sig_uri="${_evmfs_dir}/${_archive_sig_sum}"
 _archive_sig_src="${_tarfile}.sig::${_archive_sig_uri}"
@@ -143,7 +147,6 @@ if [[ "${_evmfs}" == "true" ]]; then
     "evmfs"
   )
   _src="${_evmfs_archive_src}"
-  _sum="${_archive_sum}"
   source+=(
     "${_archive_sig_src}"
   )
@@ -157,12 +160,14 @@ elif [[ "${_git}" == true ]]; then
   _src="${_tarname}::git+${_url}#${_tag_name}=${_tag}?signed"
   _sum="SKIP"
 elif [[ "${_git}" == false ]]; then
-  if [[ "${_tag_name}" == 'pkgver' ]]; then
-    _src="${_tarfile}::${_url}/archive/refs/tags/${_tag}.tar.gz"
-    _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
-  elif [[ "${_tag_name}" == "commit" ]]; then
-    _src="${_tarfile}::${_url}/archive/${_commit}.zip"
-    _sum="${_archive_sum}"
+  if [[ "${_git_http}" == "github" ]]; then
+    if [[ "${_tag_name}" == 'pkgver' ]]; then
+      _src="${_tarfile}::${_url}/archive/refs/tags/${_tag}.tar.gz"
+      _sum="d4f4179c6e4ce1702c5fe6af132669e8ec4d0378428f69518f2926b969663a91"
+    elif [[ "${_tag_name}" == "commit" ]]; then
+      _src="${_tarfile}::${_url}/archive/${_commit}.zip"
+      _sum="${_github_sum}"
+    fi
   fi
 fi
 source+=(
