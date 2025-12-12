@@ -73,8 +73,9 @@ if [[ "${_docs}" == "true" ]]; then
   )
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1"
+_libcrash_js_ver="0.1.69"
 _commit="6d7c4e87544f2c2f7cc5f3b42019cf477e498394"
-pkgrel=3
+pkgrel=4
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
   "networks wallet (and tools)."
@@ -195,7 +196,7 @@ package_evm-wallet() {
     "evm-chains-explorers"
     "key-gen"
     "libcrash-bash"
-    "libcrash-js"
+    "libcrash-js>=${_libcrash_js_ver}"
     "node-run"
     "${_node}-ethers"
   )
