@@ -23,7 +23,7 @@
 
 
 # This script is run within a virtual environment to build
-#  pakcage
+#  package
 # $1: platform
 # $2: architecture
 
@@ -200,6 +200,17 @@ _build() {
     -df
     --nocheck
   )
+  if [[ "${ns}" != "themartiancompany" ]]; then
+    _evmfs="$( \
+      recipe-get \
+        "/home/user/${_pkgname}/PKGBUILD" \
+        "_evmfs")"
+    if [[ "${_evmfs}" == "false" ]]; then
+      _makepkg_opts+=(
+        --skipinteg
+      )
+    fi
+  fi
   pacman \
     -S \
     --noconfirm \
