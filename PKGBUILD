@@ -72,12 +72,12 @@ if [[ "${_docs}" == "true" ]]; then
     "${_pkg}-docs"
   )
 fi
-pkgver="0.0.0.0.0.0.0.0.0.0.1.1"
+pkgver="0.0.0.0.0.0.0.0.0.0.1.1.1"
 _libcrash_js_ver="0.1.69"
 _libevm_ver="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
 _evm_gnupg_ver="0.0.0.0.0.0.0.0.1.1.1.1.1"
 _commit="fcfcf2cf94b1026e8f284e7793dd192e2f0df06c"
-pkgrel=9
+pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
   "networks wallet (and tools)."
@@ -152,10 +152,10 @@ _gitlab_sum="bf6c7fb2be3a0a1079ec1a04c985298cd4630700615a784faf26d6acf6df8d99"
 _gitlab_sig_sum="3676d2b253e9c0899a2724a7558abc57e905ffd872b2eaee4a2b75d0cbc17924"
 _sum="${_gitlab_sum}"
 _sig_sum="${_gitlab_sig_sum}"
-# Dvorak
-_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 # Truocolo
 _evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
+# Dvorak
+_evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_dir="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}"
