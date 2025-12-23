@@ -76,7 +76,7 @@ pkgver="0.0.0.0.0.0.0.0.0.0.1.1.1"
 _libcrash_js_ver="0.1.69"
 _libevm_ver="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
 _evm_gnupg_ver="0.0.0.0.0.0.0.0.1.1.1.1.1"
-_commit="fcfcf2cf94b1026e8f284e7793dd192e2f0df06c"
+_commit="c240ee91b64911fa031bc7f43751f88e983a7d2d"
 pkgrel=1
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
@@ -148,8 +148,9 @@ if [[ "${_offline}" == "true" ]]; then
 fi
 _github_sum="SKIP"
 _github_sig_sum="SKIP"
-_gitlab_sum="bf6c7fb2be3a0a1079ec1a04c985298cd4630700615a784faf26d6acf6df8d99"
-_gitlab_sig_sum="3676d2b253e9c0899a2724a7558abc57e905ffd872b2eaee4a2b75d0cbc17924"
+
+_gitlab_sum="928e35edad3f6e382fd9038e02d78217654137909a74939669a7e649a113339c"
+_gitlab_sig_sum="0ecfb57a27999a0721de5079d63e9aa8bbbacbd7151bace3998424ef76547cb0"
 _sum="${_gitlab_sum}"
 _sig_sum="${_gitlab_sig_sum}"
 # Truocolo
@@ -269,5 +270,3 @@ package_evm-wallet-docs() {
 }
 
 # vim: ft=sh syn=sh et
-928e35edad3f6e382fd9038e02d78217654137909a74939669a7e649a113339c  evm-wallet-c240ee91b64911fa031bc7f43751f88e983a7d2d.tar.gz
-0ecfb57a27999a0721de5079d63e9aa8bbbacbd7151bace3998424ef76547cb0  evm-wallet-c240ee91b64911fa031bc7f43751f88e983a7d2d.tar.gz.sig
