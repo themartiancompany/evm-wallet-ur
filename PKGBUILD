@@ -74,8 +74,9 @@ if [[ "${_docs}" == "true" ]]; then
 fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1.1"
 _libcrash_js_ver="0.1.69"
+_libevm_ver="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
 _commit="fcfcf2cf94b1026e8f284e7793dd192e2f0df06c"
-pkgrel=8
+pkgrel=9
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
   "networks wallet (and tools)."
@@ -96,6 +97,7 @@ group=(
   "evm-toolchain"
 )
 depends=(
+  "libevm>=${_libevm_ver}"
 )
 [[ "${_os}" != "GNU/Linux" ]] && \
 [[ "${_os}" == "Android" ]] && \
