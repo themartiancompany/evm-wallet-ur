@@ -75,6 +75,7 @@ fi
 pkgver="0.0.0.0.0.0.0.0.0.0.1.1"
 _libcrash_js_ver="0.1.69"
 _libevm_ver="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
+_evm_gnupg_ver="0.0.0.0.0.0.0.0.1.1.1.1.1"
 _commit="fcfcf2cf94b1026e8f284e7793dd192e2f0df06c"
 pkgrel=9
 _pkgdesc=(
@@ -103,7 +104,13 @@ depends=(
 [[ "${_os}" == "Android" ]] && \
   depends+=(
   )
+_evm_gnupg_optdepends=(
+  "evm-gnupg>=${_evm_gnupg_ver}:"
+    "Support for the 'OpenPGP on"
+    "Ethereum' specification." 
+)
 optdepends=(
+  "${_evm_gnupg_optdepends[*]}"
 )
 [[ "${_os}" == 'Android' ]] && \
   optdepends+=(
@@ -147,6 +154,8 @@ _sum="${_gitlab_sum}"
 _sig_sum="${_gitlab_sig_sum}"
 # Dvorak
 _evmfs_ns="0x87003Bd6C074C713783df04f36517451fF34CBEf"
+# Truocolo
+_evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
 _evmfs_network="100"
 _evmfs_address="0x69470b18f8b8b5f92b48f6199dcb147b4be96571"
 _evmfs_dir="evmfs://${_evmfs_network}/${_evmfs_address}/${_evmfs_ns}"
@@ -260,3 +269,5 @@ package_evm-wallet-docs() {
 }
 
 # vim: ft=sh syn=sh et
+928e35edad3f6e382fd9038e02d78217654137909a74939669a7e649a113339c  evm-wallet-c240ee91b64911fa031bc7f43751f88e983a7d2d.tar.gz
+0ecfb57a27999a0721de5079d63e9aa8bbbacbd7151bace3998424ef76547cb0  evm-wallet-c240ee91b64911fa031bc7f43751f88e983a7d2d.tar.gz.sig
