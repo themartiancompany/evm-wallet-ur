@@ -50,8 +50,15 @@ fi
 if [[ ! -v "_git" ]]; then
   _git="false"
 fi
+if [[ ! -v "_git_service" ]]; then
+  _git_service="gitlab"
+fi
 if [[ ! -v "_git_http" ]]; then
-  _git_http="gitlab"
+  if [[ "${_git_service}" == "gitlab" ]]; then
+    _git_http="gitlab"
+  if [[ "${_git_service}" == "github" ]]; then
+    _git_http="github"
+  fi
 fi
 if [[ "${_git_http}" == "github" ]]; then
   _archive_format="zip"
