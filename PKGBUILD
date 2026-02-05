@@ -56,7 +56,7 @@ fi
 if [[ ! -v "_git_http" ]]; then
   if [[ "${_git_service}" == "gitlab" ]]; then
     _git_http="gitlab"
-  if [[ "${_git_service}" == "github" ]]; then
+  elif [[ "${_git_service}" == "github" ]]; then
     _git_http="github"
   fi
 fi
