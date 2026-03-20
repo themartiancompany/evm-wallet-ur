@@ -84,7 +84,7 @@ _libcrash_js_ver="0.1.69"
 _libevm_ver="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
 _evm_gnupg_ver="0.0.0.0.0.0.0.0.1.1.1.1.1"
 _commit="c240ee91b64911fa031bc7f43751f88e983a7d2d"
-pkgrel=8
+pkgrel=9
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
   "networks wallet (and tools)."
@@ -153,13 +153,17 @@ _tarfile="${_tarname}.${_archive_format}"
 if [[ "${_offline}" == "true" ]]; then
   _url="file://${HOME}/${pkgname}"
 fi
-_github_sum="SKIP"
-_github_sig_sum="SKIP"
-
+_github_sum="3eb9e75779e70b1d5ff79ad6cbbb01dd76d098811a56738500486e869cc71085"
+_github_sig_sum="11ca8d7c89ba44dd6a9c8b0c4cc8d2984c576ff53cce21586e3a88f86908e430"
 _gitlab_sum="928e35edad3f6e382fd9038e02d78217654137909a74939669a7e649a113339c"
 _gitlab_sig_sum="0ecfb57a27999a0721de5079d63e9aa8bbbacbd7151bace3998424ef76547cb0"
-_sum="${_gitlab_sum}"
-_sig_sum="${_gitlab_sig_sum}"
+if [[ "${_git_service}" == "github" ]]; then
+  _sum="${_github_sum}"
+  _sig_sum="${_github_sig_sum}"
+elif [[ "${_git_service}" == "gitlab" ]]; then
+  _sum="${_gitlab_sum}"
+  _sig_sum="${_gitlab_sig_sum}"
+fi
 # Truocolo
 _evmfs_ns="0x6E5163fC4BFc1511Dbe06bB605cc14a3e462332b"
 # Dvorak
