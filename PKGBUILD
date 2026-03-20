@@ -84,7 +84,7 @@ _libcrash_js_ver="0.1.69"
 _libevm_ver="0.0.0.0.0.0.0.0.1.1.1.1.1.1.1"
 _evm_gnupg_ver="0.0.0.0.0.0.0.0.1.1.1.1.1"
 _commit="c240ee91b64911fa031bc7f43751f88e983a7d2d"
-pkgrel=12
+pkgrel=13
 _pkgdesc=(
   "Ethereum Virtual Machine-compatible"
   "networks wallet (and tools)."
