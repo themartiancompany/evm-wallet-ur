@@ -90,6 +90,8 @@ jobs:
         - /tmp/node20:/__e/node20
     # approximate environment variables for actions that can't be forced to use entrypoint.sh
     env:
+      GH_TOKEN:
+        ${{ github.token }}
       TERMUX_MAIN_PACKAGE_FORMAT:
         debian
       TERMUX_VERSION:
@@ -1034,7 +1036,7 @@ jobs:
           pacman \
             -S \
             --noconfirm \
-            "gh" \
+            "github-cli" \
             "git" \
             "jq" \
             "python" \
@@ -1884,6 +1886,9 @@ jobs:
           actions/checkout@v3
       - name:
           Installs recent EVM GNUPG.
+        env:
+          GITHUB_TOKEN:
+            ${{ secrets.GITHUB_TOKEN }}
         run: |
           bash \
             ".github/gur-mini" \
@@ -1904,7 +1909,6 @@ jobs:
           #       "${HOME}/evm-gnupg-src" \
           #   PREFIX="/usr" \
           #   install-scripts
-
       - name:
           Installs build dependencies.
         run: |
