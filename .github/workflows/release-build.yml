@@ -254,7 +254,6 @@ jobs:
             pkg \
               install \
                 -y \
-                "github-cli" \
                 "pacman" \
                 "termux-keyring" \
                 "tree" \
@@ -775,6 +774,11 @@ jobs:
       - name:
           Installs latest Gur.
         run: |
+          /entrypoint.sh \
+            pkg \
+              install \
+                -y \
+                "gh"
           /entrypoint.sh \
             git \
               clone \
